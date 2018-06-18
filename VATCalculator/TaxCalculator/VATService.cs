@@ -1,18 +1,41 @@
 ﻿using System;
-using VATCalculator.Properties;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Diagnostics;
 
 namespace Cryptolens.VATCalculator
 {
+    /// <summary>
+    /// Methods to help calculating VAT within the EU.
+    /// </summary>
     public class VATService
     {
-        public static int CalculateVAT(string ISOCountryName, string VATId)
+        /// <summary>
+        /// Calculates the tax that should be applied to the customer.
+        /// </summary>
+        /// <param name="ISOCountryName">An ISO country code (eg. SE).</param>
+        /// <param name="VATId">The VAT id, eg SE559116174901.</param>
+        /// <returns>Returns an integer, eg 25.5% means 2550 will be returned.</returns>
+        public static VAT CalculateVAT(string ISOCountryName, string VATId)
         {
-            JsonConvert.DeserializeObject<Dictionary<string,string>>(Resources.ISO2Country);
-            return 0;
+            var dict = JsonConvert.DeserializeObject<Dictionary<string,int>>(Resources.ISO2Country);
+
+            if(!dict.ContainsKey(ISOCountryName))
+            {
+                // export (outside of EU)
+                return new VAT { Tax = 0, Type= VATType.NonEU};
+            }
+
+            if(!string.IsNullOrEmpty(VATId))
+            {
+                // reverse tax liability (omvänd skattskyldighet)
+                // we assume the VATId has been validated
+                return new VAT {Tax = 0, Type = VATType.ReverseTaxLiability };
+            }
+
+            return new VAT { Tax = dict[ISOCountryName] * 100, Type = VATType.PrivateEUCitizen };
         }
 
         /// <summary>
@@ -28,7 +51,8 @@ namespace Cryptolens.VATCalculator
 
             if(VATId == null || VATId.Length < 3)
             {
-                throw new ArgumentException("VATId cannot be null or less 3 chars in length");
+                Debug.WriteLine("VATId cannot be null or less 3 chars in length.");
+                return new VATResponse { IsValid = false };
             }
 
             var param = new VATCheck.checkVatRequest(VATId.Substring(0,2), VATId.Substring(2));
@@ -46,6 +70,9 @@ namespace Cryptolens.VATCalculator
         }
     }
 
+    /// <summary>
+    /// Used to store response of <see cref="VATService.IsValidVAT(string)"/>.
+    /// </summary>
     public class VATResponse
     {
         /// <summary>
@@ -62,5 +89,19 @@ namespace Cryptolens.VATCalculator
         /// The address of the company (can be null).
         /// </summary>
         public string Address { get; set; }
+    }
+
+    public class VAT
+    {
+        public int Tax { get; set; }
+
+        public VATType Type { get; set; }
+    }
+
+    public enum VATType
+    {
+        NonEU,
+        ReverseTaxLiability,
+        PrivateEUCitizen
     }
 }
