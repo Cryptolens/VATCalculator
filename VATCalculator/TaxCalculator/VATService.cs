@@ -91,17 +91,37 @@ namespace Cryptolens.VATCalculator
         public string Address { get; set; }
     }
 
+    /// <summary>
+    /// Describes the amount of VAT and reason for it.
+    /// </summary>
     public class VAT
     {
+        /// <summary>
+        /// The tax the customer should pay.
+        /// </summary>
         public int Tax { get; set; }
 
+        /// <summary>
+        /// What type of tax is this.
+        /// </summary>
         public VATType Type { get; set; }
     }
 
     public enum VATType
     {
+        /// <summary>
+        /// Export
+        /// </summary>
         NonEU,
+
+        /// <summary>
+        /// Company inside EU
+        /// </summary>
         ReverseTaxLiability,
-        PrivateEUCitizen
+
+        /// <summary>
+        /// Private EU resident
+        /// </summary>
+        PrivateEUResident
     }
 }
