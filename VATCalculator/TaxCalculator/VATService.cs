@@ -21,11 +21,15 @@ namespace Cryptolens.VATCalculator
         /// the service at http://ec.europa.eu/taxation_customs/vies/monitoring.html.
         /// </summary>
         /// <param name="VATId">The VAT id, eg SE559116174901.</param>
-        /// <returns></returns>
         public static VATResponse IsValidVAT(string VATId)
         {
             // all requests sent to http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
             // tech docs at http://ec.europa.eu/taxation_customs/vies/help.html
+
+            if(VATId == null || VATId.Length < 3)
+            {
+                throw new ArgumentException("VATId cannot be null or less 3 chars in length");
+            }
 
             var param = new VATCheck.checkVatRequest(VATId.Substring(0,2), VATId.Substring(2));
 
