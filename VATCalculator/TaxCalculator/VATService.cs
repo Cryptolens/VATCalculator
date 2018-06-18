@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Cryptolens.VATCalculator
 {
-    public class VATCalculator
+    public class VATService
     {
         public static int CalculateVAT(string ISOCountryName, string VATId)
         {
