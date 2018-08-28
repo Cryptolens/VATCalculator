@@ -35,7 +35,7 @@ namespace Cryptolens.VATCalculator
                 return new VAT {Tax = 0, Type = VATType.ReverseTaxLiability };
             }
 
-            return new VAT { Tax = dict[ISOCountryName] * 100, Type = VATType.PrivateEUCitizen };
+            return new VAT { Tax = dict[ISOCountryName] * 100, Type = VATType.PrivateEUResident };
         }
 
         /// <summary>

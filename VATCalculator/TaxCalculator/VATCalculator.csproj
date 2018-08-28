@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>VATCalculator</RootNamespace>
+    <RootNamespace>Cryptolens.VATCalculator</RootNamespace>
     <AssemblyName>VATCalculator</AssemblyName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>Cryptolens AB</Company>
