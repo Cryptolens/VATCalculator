@@ -5,6 +5,12 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Diagnostics;
 
+/// <summary>
+/// VAT Calculator combines a local database of tax percentages per country
+/// with the API from EU Comission for VAT number verification to make it
+/// easier to calculate the tax when selling products and services as a
+/// European company.
+/// </summary>
 namespace Cryptolens.VATCalculator
 {
     /// <summary>
@@ -110,17 +116,17 @@ namespace Cryptolens.VATCalculator
     public enum VATType
     {
         /// <summary>
-        /// Export
+        /// Export, no VAT applied
         /// </summary>
         NonEU,
 
         /// <summary>
-        /// Company inside EU
+        /// Company inside EU, reverse tax liability 
         /// </summary>
         ReverseTaxLiability,
 
         /// <summary>
-        /// Private EU resident
+        /// Private EU resident, apply local tax
         /// </summary>
         PrivateEUResident
     }
