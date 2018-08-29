@@ -7,8 +7,8 @@ using System.Diagnostics;
 
 /// <summary>
 /// VAT Calculator combines a local database of tax percentages per country
-/// with the API from EU Comission for VAT number verification to make it
-/// easier to calculate the tax when selling products and services as a
+/// with the API from the EU Comission for VAT number verification to make 
+/// it easier to calculate the tax when selling products and services as a
 /// European company.
 /// </summary>
 namespace Cryptolens.VATCalculator
