@@ -10,6 +10,11 @@
     <PackageReleaseNotes></PackageReleaseNotes>
     <RepositoryUrl>https://git.cryptolens.io/cryptolens/tax-calculator</RepositoryUrl>
     <PackageProjectUrl>https://git.cryptolens.io/cryptolens/tax-calculator</PackageProjectUrl>
+    <PackageId>Cryptolens.VATCalculator</PackageId>
+    <Product>Cryptolens.VATCalculator</Product>
+    <Copyright>Cryptolens AB</Copyright>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description></Description>
   </PropertyGroup>
 
   <ItemGroup>
