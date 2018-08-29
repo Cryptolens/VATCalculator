@@ -15,6 +15,7 @@
     <Copyright>Cryptolens AB</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Description></Description>
+    <PackageLicenseUrl>https://github.com/Cryptolens/VATCalculator/blob/master/LICENSE.md</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
