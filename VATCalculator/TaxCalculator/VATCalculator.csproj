@@ -7,15 +7,20 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company>Cryptolens AB</Company>
     <Authors>Artem Los</Authors>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>Update metadata.</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/Cryptolens/VATCalculator</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Cryptolens/VATCalculator</PackageProjectUrl>
     <PackageId>Cryptolens.VATCalculator</PackageId>
     <Product>Cryptolens.VATCalculator</Product>
     <Copyright>Cryptolens AB</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Description></Description>
+    <Description>This library helps you to 1) verify a VAT number using the European Commission's API and 2) get the tax percentage (VAT) that should be applied to an invoice.
+
+The package is aimed at European businesses (i.e. companies within the EU).</Description>
     <PackageLicenseUrl>https://github.com/Cryptolens/VATCalculator/blob/master/LICENSE.md</PackageLicenseUrl>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
