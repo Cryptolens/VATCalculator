@@ -5,7 +5,7 @@ This library does two things:
 1. Computes the VAT given a country and a VAT number.
 2. Verifies VAT number with the EU Comission's SOAP app.
 
-> When verifying VAT, don't view this as an on-demand service, since it might
+> When verifying VAT number, don't view this as an on-demand service, since it might
 fail occasionally due to errors or maintenance (see 
 [this document](http://ec.europa.eu/taxation_customs/vies/help.html))
 
