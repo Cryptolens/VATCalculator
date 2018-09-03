@@ -2,8 +2,8 @@
 
 This library does two things:
 
-1. Computes the VAT given a country and VAT.
-2. Verifies VAT with the EU Comission's SOAP app.
+1. Computes the VAT given a country and a VAT number.
+2. Verifies VAT number with the EU Comission's SOAP app.
 
 > When verifying VAT, don't view this as an on-demand service, since it might
 fail occasionally due to errors or maintenance (see 
